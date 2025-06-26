@@ -1,0 +1,9 @@
+# Exclusion rules for gitleaks
+^0x[a-zA-Z0-9]+$                # 0x followed by alphanumeric chars
+^_chunk.*$                      # _chunk followed by anything
+^s\.EIP.*$                      # s.EIP followed by anything
+^s=this.*$                      # s=this followed by anything
+^i=this.*$                      # i=this followed by anything
+^8\.7.*$                        # 8.7 followed by anything
+^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$  # UUIDs
+^[a-zA-Z0-9]{32}$              # 32-char alphanumeric keys

@@ -6,4 +6,7 @@
 ^i=this.*$                      # i=this followed by anything
 ^8\.7.*$                        # 8.7 followed by anything
 ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$  # UUIDs
-^[a-zA-Z0-9]{32}$              # 32-char alphanumeric keys
+^(keyCode\.END:)?s=this\.anchors\.length-1;?$  # keyCode pattern with optional prefix/suffix
+^ABIAAAABABMAAAABAAEA$        # Exact ABI string
+^ABIAAAAAAAAAAAAAAAAA$         # Exact ABI string
+^ABIAAEAAAAAAAQADABUA$        # Exact ABI string

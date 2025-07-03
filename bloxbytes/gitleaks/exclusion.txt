@@ -6,4 +6,5 @@
 ^i=this.*$                      # i=this followed by anything
 ^8\.7.*$                        # 8.7 followed by anything
 ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$  # UUIDs
-^[a-zA-Z0-9]{32}$              # 32-char alphanumeric keys
+^[a-zA-Z0-9]{32}$               # 32-char alphanumeric keys
+^snap_get.*$                    # snap_get followed by anything

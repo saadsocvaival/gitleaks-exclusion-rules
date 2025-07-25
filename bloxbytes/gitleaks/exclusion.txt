@@ -13,5 +13,4 @@
 ^(?:tokenAddress|Token|tokenAdd|tokenContract|NEXT_PUBLIC_NODE_TOKEN_ADDRESS)\s*[:=]\s*["']?0x[a-fA-F0-9]{40}["']?$  # Ignores token address assignments
 ^0x[a-fA-F0-9]{40}$            # Ignores standalone Ethereum addresses
 ^NEXT_PUBLIC_CLIENT_ID=[a-f0-9]{32}$  # Ignores client ID with 32-char hex
-^ABI[A-Z0-9]+$                 # Ignores ABI strings starting with ABI followed by uppercase letters or digits
 ^abc123def456$                 # Ignore Default string from nextjs Readme file `abc123def456`

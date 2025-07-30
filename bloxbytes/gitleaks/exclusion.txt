@@ -5,7 +5,7 @@
 ^s=this.*$                      # s=this followed by anything
 ^i=this.*$                      # i=this followed by anything
 ^8\.7.*$                        # 8.7 followed by anything
-^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$  # UUIDs
+^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$  # UUIDs
 ^(keyCode\.END:)?s=this\.anchors\.length-1;?$  # keyCode pattern with optional prefix/suffix
 ^ABIAAAABABMAAAABAAEA$        # Exact ABI string
 ^ABIAAAAAAAAAAAAAAAAA$         # Exact ABI string
@@ -13,7 +13,6 @@
 ^(?:tokenAddress|Token|tokenAdd|tokenContract|NEXT_PUBLIC_NODE_TOKEN_ADDRESS)\s*[:=]\s*["']?0x[a-fA-F0-9]{40}["']?$  # Ignores token address assignments
 ^0x[a-fA-F0-9]{40}$            # Ignores standalone Ethereum addresses
 ^NEXT_PUBLIC_CLIENT_ID=[a-f0-9]{32}$  # Ignores client ID with 32-char hex
-^ABI[A-Z0-9]+$                 # Ignores ABI strings starting with ABI followed by uppercase letters or digits
 ^abc123def456$                 # Ignore Default string from nextjs Readme file `abc123def456`
 ^_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC$
 ^919b412a057b5e9c9b6dce193c5a60242d6efadb$
@@ -22,6 +21,6 @@
 ^ketchupmustard7$
 ^ketchupmustard10$
 ^s\.Eip1559NotSupportedError$
-^pIyCIhdNB6p26BCDtCvYinqAO$
-^vg21zNppRb8DF7ZL2qGBEkOaerIFqgX7vySXJ9JUZayoZo2JoG$
-^eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYWU1MDliZmMyMDVlMmRiMGViODgxZCIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTYyNzQ5NTQxMSwiZXhwIjoxNjU5MDUzMDExfQ.eRAGABLCD99SSekPTqn9EyPykWg9wLQhOdmYsKis5LQ$ # excludes this jwt as per the developers
+^eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.eyJpZCI6IjYwYWU1MDliZmMyMDVlMmRiMGViODgxZCIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTYyNzQ5NTQxMSwiZXhwIjoxNjU5MDUzMDExfQ\.eRAGABLCD99SSekPTqn9EyPykWg9wLQhOdmYsKis5LQ$ # excludes this jwt as per the developers
+^snap_get.*$                    # excludes anything starting with snap_get
+^getP256KeyPair.*$              # excludes anything starting with getP256KeyPair

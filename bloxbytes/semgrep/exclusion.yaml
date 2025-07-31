@@ -1,169 +1,101 @@
 exclusions:
+  # Specific exclusion for cloudwallet-api
   - repo: "cloudwallet-api"
-    path: "/cloudwallet-api/src/nfts/nfts.controller.ts"
+    path: "src/nfts/nfts.controller.ts"
     message_pattern: "Detected a logger that logs user input without properly neutralizing the output.*"
+
+  # Specific exclusion for ElysiumSwap-Dev with line range
   - repo: "ElysiumSwap-Dev"
-    path: "/ElysiumSwap-Dev/Dockerfile"
+    path: "Dockerfile"
     message_pattern: "By not specifying a USER.*"
     line: 52
     line_range: 10
-  - rule_id: csharp.lang.security.sqli.csharp-sqli
-    patterns:
-      - ^SELECT\s+UserId,\s*IF\(COUNT\(DISTINCT DAYOFWEEK\(Created_Date\)\)\s*>=\s*4,\s*Max\(LAVA_hold\s*>=\s*350\),\s*0\)\s*as\s*LAVA_hold_Condition.*$
-      - ^UPDATE\s+user_qualified_loyaltyachievements\s+SET\s+Winner\s*=\s*1\s+WHERE\s+ID\s+IN\s*\(\{[A-Za-z]+\}\);$
-      - ^select\s+UserName\s+from\s+users\s+where\s+UserID\s+in\s*\(\{[A-Za-z]+\}\);$
-  - rule_id: csharp.lang.security.sqli.csharp-sqli.csharp-sqli
-  - repo: "vulcan-apps"
+
+  # Broad exclusion for authorization issues across multiple repos
+  - repos: [
+      "vulcan-apps", "agora-elysium", "rebel-cars", "metascape", "mongo-api",
+      "sketchfab.rebelcars.io", "web-vulcan", "web-korea", "web-info",
+      "web-vulcaverse", "web-berserk", "web-creed", "web-metascape",
+      "web-vulcanstudio", "web-vulcanstudio-lp", "web-elysium",
+      "web-vf-events", "web-fortuna", "web-poker", "web-arena",
+      "web-phalanx", "web-tokenpyr"
+    ]
     rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "vulcan-apps"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "vulcan-apps"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "agora-elysium"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "agora-elysium"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "agora-elysium"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "rebel-cars"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "rebel-cars"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "rebel-cars"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "metascape"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "metascape"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "metascape"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "mongo-api"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "mongo-api"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "mongo-api"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "sketchfab.rebelcars.io"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "sketchfab.rebelcars.io"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "sketchfab.rebelcars.io"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-vulcan"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-vulcan"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-vulcan"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-korea"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-korea"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-korea"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-info"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-info"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-info"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-vulcaverse"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-vulcaverse"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-vulcaverse"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-berserk"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-berserk"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-berserk"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-creed"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-creed"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-creed"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-metascape"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-metascape"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-metascape"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-vulcanstudio"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-vulcanstudio"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-vulcanstudio"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-vulcanstudio-lp"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-vulcanstudio-lp"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-vulcanstudio-lp"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-elysium"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-elysium"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-elysium"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-vf-events"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-vf-events"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-vf-events"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-fortuna"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-fortuna"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-fortuna"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-poker"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-poker"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-poker"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-arena"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-arena"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-arena"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-phalanx"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-phalanx"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-phalanx"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
-  - repo: "web-tokenpyr"
-    rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
-    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."
-  - repo: "web-tokenpyr"
-    message_pattern: "Detected a formatted string in a SQL statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use a prepared statements instead. You can obtain a PreparedStatement using 'SqlCommand' and 'SqlParameter'."
-  - repo: "web-tokenpyr"
-    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks, which could create a new parameter in the binding request and manipulate the underlying object in the application."
+    message_pattern: "Anonymous access shouldn't be allowed unless explicit by design.*"
+
+  # Broad exclusion for SQL injection issues across multiple repos
+  - repos: [
+      "vulcan-apps", "agora-elysium", "rebel-cars", "metascape", "mongo-api",
+      "sketchfab.rebelcars.io", "web-vulcan", "web-korea", "web-info",
+      "web-vulcaverse", "web-berserk", "web-creed", "web-metascape",
+      "web-vulcanstudio", "web-vulcanstudio-lp", "web-elysium",
+      "web-vf-events", "web-fortuna", "web-poker", "web-arena",
+      "web-phalanx", "web-tokenpyr"
+    ]
+    rule_id: "csharp.lang.security.sqli.csharp-sqli.csharp-sqli"
+    message_pattern: "Detected a formatted string in a SQL statement.*"
+
+  # Broad exclusion for mass assignment issues across multiple repos
+  - repos: [
+      "vulcan-apps", "agora-elysium", "rebel-cars", "metascape", "mongo-api",
+      "sketchfab.rebelcars.io", "web-vulcan", "web-korea", "web-info",
+      "web-vulcaverse", "web-berserk", "web-creed", "web-metascape",
+      "web-vulcanstudio", "web-vulcanstudio-lp", "web-elysium",
+      "web-vf-events", "web-fortuna", "web-poker", "web-arena",
+      "web-phalanx", "web-tokenpyr"
+    ]
+    rule_id: "csharp.dotnet.security.audit.mass-assignment.mass-assignment"
+    message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks.*"
+
+  # Commented examples for future use, covering all supported fields and combinations
+  # Example: Specific exclusion with all fields
+  # - repo: "example-repo"
+  #   path: "src/example/file.cs"
+  #   message_pattern: ".*example issue.*"
+  #   line: 100
+  #   line_range: 5
+  #   rule_id: "example.rule.id"
+  #   patterns:
+  #     - ^example\s+code\s+pattern.*$
+
+  # Example: Broad exclusion by rule_id only
+  # - rule_id: "example.rule.id"
+
+  # Example: Exclusion by message pattern only
+  # - message_pattern: ".*generic issue description.*"
+
+  # Example: Exclusion by repo and wildcard path
+  # - repo: "example-repo"
+  #   path: "src/*.cs"
+
+  # Example: Exclusion by repos and message pattern
+  # - repos: ["example-repo1", "example-repo2"]
+  #   message_pattern: ".*another issue.*"
+
+  # Example: Exclusion by repo, path, and line
+  # - repo: "example-repo"
+  #   path: "src/db/query.cs"
+  #   line: 200
+
+  # Example: Exclusion by rule_id and patterns
+  # - rule_id: "example.sql.injection"
+  #   patterns:
+  #     - ^SELECT\s+.*FROM\s+table.*$
+  #     - ^INSERT\s+INTO\s+table.*$
+
+  # Example: Exclusion by repos, wildcard path, and message pattern
+  # - repos: ["example-repo1", "example-repo2"]
+  #   path: "*.js"
+  #   message_pattern: ".*javascript issue.*"
+
+  # Example: Exclusion with line and line_range
+  # - repo: "example-repo"
+  #   path: "config.ini"
+  #   line: 50
+  #   line_range: 10
+
+  # Example: Potential future fields (requires script update)
+  # - repo: "example-repo"
+  #   severity: "INFO"  # Not currently supported
+  #   confidence: "LOW"  # Not currently supported
+  #   message_pattern: ".*low confidence issue.*"

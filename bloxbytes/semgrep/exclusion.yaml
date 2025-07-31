@@ -1,16 +1,4 @@
 exclusions:
-  # Specific exclusion for cloudwallet-api
-  - repo: "cloudwallet-api"
-    path: "src/nfts/nfts.controller.ts"
-    message_pattern: "Detected a logger that logs user input without properly neutralizing the output.*"
-
-  # Specific exclusion for ElysiumSwap-Dev with line range
-  - repo: "ElysiumSwap-Dev"
-    path: "Dockerfile"
-    message_pattern: "By not specifying a USER.*"
-    line: 52
-    line_range: 10
-
   # Broad exclusion for authorization issues across multiple repos
   - repos: [
       "vulcan-apps", "agora-elysium", "rebel-cars", "metascape", "mongo-api",

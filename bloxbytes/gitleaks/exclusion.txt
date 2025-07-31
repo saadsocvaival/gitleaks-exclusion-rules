@@ -26,3 +26,4 @@
 ^eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.eyJpZCI6IjYwYWU1MDliZmMyMDVlMmRiMGViODgxZCIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTYyNzQ5NTQxMSwiZXhwIjoxNjU5MDUzMDExfQ\.eRAGABLCD99SSekPTqn9EyPykWg9wLQhOdmYsKis5LQ$ # excludes this jwt as per the developers
 ^snap_get.*$                    # excludes anything starting with snap_get
 ^getP256KeyPair.*$              # excludes anything starting with getP256KeyPair
+^c=l\.defaults\.keys$

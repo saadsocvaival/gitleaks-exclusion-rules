@@ -12,7 +12,7 @@ exclusions:
       - ^SELECT\s+UserId,\s*IF\(COUNT\(DISTINCT DAYOFWEEK\(Created_Date\)\)\s*>=\s*4,\s*Max\(LAVA_hold\s*>=\s*350\),\s*0\)\s*as\s*LAVA_hold_Condition.*$
       - ^UPDATE\s+user_qualified_loyaltyachievements\s+SET\s+Winner\s*=\s*1\s+WHERE\s+ID\s+IN\s*\(\{[A-Za-z]+\}\);$
       - ^select\s+UserName\s+from\s+users\s+where\s+UserID\s+in\s*\(\{[A-Za-z]+\}\);$
-  -rule_id: csharp.lang.security.sqli.csharp-sqli.csharp-sqli
+  - rule_id: csharp.lang.security.sqli.csharp-sqli.csharp-sqli
   - repo: "vulcan-apps"
     rule_id: "csharp.dotnet.security.audit.missing-or-broken-authorization.missing-or-broken-authorization"
     message_pattern: "Anonymous access shouldn't be allowed unless explicit by design. Access control checks are missing and potentially can be bypassed. This finding violates the principle of least privilege or deny by default, where access should only be permitted for a specific set of roles or conforms to a custom policy or users."

@@ -35,6 +35,17 @@ exclusions:
     rule_id: "csharp.dotnet.security.audit.mass-assignment.mass-assignment"
     message_pattern: "Mass assignment or Autobinding vulnerability in code allows an attacker to execute over-posting attacks.*"
 
+  # Broad exclusion for unsafe file path issues across multiple repos
+  - repos: [
+      "vulcan-apps", "agora-elysium", "rebel-cars", "metascape", "mongo-api",
+      "sketchfab.rebelcars.io", "web-vulcan", "web-korea", "web-info",
+      "web-vulcaverse", "web-berserk", "web-creed", "web-metascape",
+      "web-vulcanstudio", "web-vulcanstudio-lp", "web-elysium",
+      "web-vf-events", "web-fortuna", "web-poker", "web-arena",
+      "web-phalanx", "web-tokenpyr"
+    ]
+    rule_id: "csharp.lang.security.filesystem.unsafe-path-combine.unsafe-path-combine"
+
   # Commented examples for future use, covering all supported fields and combinations
   # Example: Specific exclusion with all fields
   # - repo: "example-repo"

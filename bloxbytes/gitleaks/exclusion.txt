@@ -27,3 +27,7 @@
 ^snap_get.*$                    # excludes anything starting with snap_get
 ^getP256KeyPair.*$              # excludes anything starting with getP256KeyPair
 ^c=l\.defaults\.keys$
+^sk_test_jVXtu270S662FycP4RCIPvhq4dyiF8$
+^NCES15TF67WTQ7QYRFWRAPA6XF2CCRXPMI$
+^8CZ3UDJ5DIZQ3QP14VYA6Q2BUN7SJT9HA$
+^pk_test_xtEVAMCjHDcILMNaGhdMOKCYJbBO2FyB$

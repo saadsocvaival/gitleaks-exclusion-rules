@@ -11,7 +11,6 @@
 ^ABIAAAAAAAAAAAAAAAAA$         # Exact ABI string
 ^ABIAAEAAAAAAAQADABUA$        # Exact ABI string
 ^(?:tokenAddress|Token|tokenAdd|tokenContract|NEXT_PUBLIC_NODE_TOKEN_ADDRESS)\s*[:=]\s*["']?0x[a-fA-F0-9]{40}["']?$  # Ignores token address assignments
-^0x[a-fA-F0-9]{40}$            # Ignores standalone Ethereum addresses
 ^NEXT_PUBLIC_CLIENT_ID=[a-f0-9]{32}$  # Ignores client ID with 32-char hex
 ^64f746914f856a5b158324ab26977a31$
 ^abc123def456$                 # Ignore Default string from nextjs Readme file `abc123def456`
@@ -28,3 +27,4 @@
 ^snap_get.*$                    # excludes anything starting with snap_get
 ^getP256KeyPair.*$              # excludes anything starting with getP256KeyPair
 ^c=l\.defaults\.keys$
+^ckey_cba3674f2ce5450f9d5dd29058$

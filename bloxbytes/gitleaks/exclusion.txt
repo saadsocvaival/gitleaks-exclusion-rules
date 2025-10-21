@@ -29,3 +29,5 @@
 ^c=l\.defaults\.keys$
 ^ckey_cba3674f2ce5450f9d5dd290589$
 ^ckey_cba3674f2ce5450f9d5dd29058$
+^https://hooks\.slack\.com/services/T04SDKELQUD/B0925K9CM39/6GMnKZ5AQskaYvUEgD9q0k$
+^f76f50283af21db4ef0e6eec33b378eb$
